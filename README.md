@@ -22,3 +22,14 @@ User {
 - [Clean Architecture as We need](https://github.com/bluewave-labs/verifywise/blob/master/Clean_Architecture.md#clean-architecture)
 
 ---
+
+---
+
+## Validations (Must)
+
+- Create a Browser local storage to store the list of Users.
+- During Create; validate all the fields(You can use Google **LibPhoneNumber** to validate mobile number).
+- Users must be **unique** in the database(local storage): By **firstname, lastname, dateOfBirth, and phone**.
+- Email and phone must be unique in the local storage or memory array
+
+---
