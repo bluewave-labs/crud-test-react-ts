@@ -33,3 +33,15 @@ User {
 - Email and phone must be unique in the local storage or memory array
 
 ---
+
+### Delivery (Must)
+
+Please clone this repository in a new GitHub repository in private mode and share with ID: `MuhammadKhalilzadeh` and `gorkem-bwl` in private mode on github.com, make sure you do not erase my commits and then create a pull request (code review).
+
+---
+
+#### Useful links
+
+[Basic Git Instructions: Making pull request to the original repository](https://github.com/MuhammadKhalilzadeh/basic-git-instructions?tab=readme-ov-file#making-pull-request-to-the-original-repository)
+[Git Collaborative Workflow Tutorial: Making a Pull Request](https://github.com/ajhollid/bluewave_collaborative_git?tab=readme-ov-file#making-a-pull-request)
+[Link to a brief description on our naming convention](https://github.com/MuhammadKhalilzadeh/basic-git-instructions?tab=readme-ov-file#checking-out-and-creating-a-new-branch)
