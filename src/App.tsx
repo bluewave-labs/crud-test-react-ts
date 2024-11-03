@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import UserForm from "./UserForm";
+import UserList from "./UserList";
+import { User } from "./types";
 
-function App() {
-  const [count, setCount] = useState(0)
+import "./App.css";
+
+const App: React.FC = () => {
+  const [users, setUsers] = useState<User[]>([]);
+  const [editingUser, setEditingUser] = useState<User | null>(null);
+
+  //add user
+  const addUser = (user: User) => {
+    setUsers((prevUsers) => [...prevUsers, user]);
+  };
+
+  //update user
+  const updateUser = (updateUser: User) => {
+    setUsers((prevUsers) =>
+      prevUsers.map((u) => (u.id === updateUser.id ? updateUser : u))
+    );
+  };
+
+  //delete user
+  const deleteUser = (userId: string) => {
+    setUsers((prevUsers) => prevUsers.filter((user) => user.id !== userId));
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
-
-export default App
+    <div>
+      <UserForm
+        onSave={addUser}
+        editingUser={editingUser}
+        onEditSave={updateUser}
+      />
+      <UserList users={users} onDelete={deleteUser} onEdit={setEditingUser} />
+    </div>
+  );
+};
+export default App;
