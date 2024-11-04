@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import UserForm from "./UserForm";
 import UserList from "./UserList";
 import { User } from "./types";
@@ -6,8 +6,16 @@ import { User } from "./types";
 import "./App.css";
 
 const App: React.FC = () => {
-  const [users, setUsers] = useState<User[]>([]);
+  const [users, setUsers] = useState<User[]>(() => {
+    //local storage
+    const storedUsers = localStorage.getItem("users");
+    return storedUsers ? JSON.parse(storedUsers) : [];
+  });
   const [editingUser, setEditingUser] = useState<User | null>(null);
+
+  useEffect(()=>{
+    localStorage.setItem('users', JSON.stringify(users))
+  },[users]);
 
   //add user
   const addUser = (user: User) => {
