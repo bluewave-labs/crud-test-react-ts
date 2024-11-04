@@ -13,12 +13,26 @@ const App: React.FC = () => {
   });
   const [editingUser, setEditingUser] = useState<User | null>(null);
 
-  useEffect(()=>{
-    localStorage.setItem('users', JSON.stringify(users))
-  },[users]);
+  useEffect(() => {
+    localStorage.setItem("users", JSON.stringify(users));
+  }, [users]);
 
   //add user
   const addUser = (user: User) => {
+    //unique users
+    const isDuplicate = users.some(
+      (u) =>
+        (u.firstName === user.firstName &&
+          u.lastName === user.lastName &&
+          u.dateOfBirth === user.dateOfBirth &&
+          u.phone === user.phone) ||
+        u.emailAddress === user.emailAddress ||
+        u.phone === user.phone
+    );
+    if (isDuplicate) {
+      alert("User with this information already exists");
+      return;
+    }
     setUsers((prevUsers) => [...prevUsers, user]);
   };
 
