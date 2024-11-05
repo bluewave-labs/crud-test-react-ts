@@ -1,6 +1,6 @@
-# CRUD Test: React + ts + swc
+# CRUD test: Reactjs
 
-Create a simple CRUD application with Reactjs that implements the models below:
+Create a simple CRUD application with Reactjs & MUI that implements the models below:
 
 ```
 User {
