@@ -17,7 +17,7 @@ const App: React.FC = () => {
     localStorage.setItem("users", JSON.stringify(users));
   }, [users]);
 
-  //add user
+  //add user first checking duplicate
   const addUser = (user: User) => {
     //unique users
     const isDuplicate = users.some(
