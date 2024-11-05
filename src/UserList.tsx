@@ -13,10 +13,11 @@ const UserList: React.FC<UserListProps> = ({ users, onDelete, onEdit }) => {
       {users.map((user) => (
         <div key={user.id}>
           <span>
-            {user.firstName} {user.lastName}
+            {user.firstName} /
           </span>
-          <span>{user.emailAddress}</span>
-          <span>{user.phone}</span>
+          <span> {user.lastName} / </span>
+          <span>{user.emailAddress} / </span>
+          <span>{user.phone} / </span>
           <button onClick={()=> onEdit(user)}>Edit</button>
           <button onClick={()=> onDelete(user.id)}>Delete</button>
         </div>
