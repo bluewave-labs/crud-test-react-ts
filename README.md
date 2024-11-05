@@ -14,13 +14,12 @@ User {
 
 ---
 
-## Practices and patterns
+## Make sure you complete this task using the following (do not skip this)
 
-- [Unit testing: Link 1](https://en.wikipedia.org/wiki/Unit_testing), [Link 2](https://www.testim.io/blog/node-js-unit-testing-get-started-quickly-with-examples/), [Link 3](https://www.lambdatest.com/learning-hub/nodejs-unit-testing)
-- Clean git commits that show your work progress.
-- [Material UI](https://mui.com/material-ui/getting-started/)
-- [Clean Architecture as we need](https://github.com/bluewave-labs/verifywise/blob/master/Clean_Architecture.md#clean-architecture)
-
+- [ ] [Unit testing: Link 1](https://en.wikipedia.org/wiki/Unit_testing), [Link 2](https://www.testim.io/blog/node-js-unit-testing-get-started-quickly-with-examples/), [Link 3](https://www.lambdatest.com/learning-hub/nodejs-unit-testing)
+- [ ] Clean git commits that show your work progress.
+- [ ] Use [Material UI](https://mui.com/material-ui/getting-started/). Make sure you check our components under Client folder.
+- [ ] Implement [clean architecture](https://github.com/bluewave-labs/verifywise/blob/master/Clean_Architecture.md#clean-architecture)
 
 ---
 
