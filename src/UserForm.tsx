@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { User } from "./types";
-import { isValidPhoneNumber } from "libphonenumber-js";
+// import { isValidPhoneNumber } from "libphonenumber-js";
+import { parsePhoneNumberFromString} from "libphonenumber-js";
 
 interface UserFormProps {
   onSave: (user: User) => void;
@@ -26,6 +27,18 @@ const UserForm: React.FC<UserFormProps> = ({
     if (editingUser) setFormData(editingUser);
   }, [editingUser]);
 
+//validating phone and email 
+const isValidEmail = (email:string):boolean =>{
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email)
+}
+
+const isValidPhone = (phone:string):boolean=>{
+const phoneNumber = parsePhoneNumberFromString(phone);
+return phoneNumber ? phoneNumber.isValid():false;
+}
+
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -44,13 +57,12 @@ const UserForm: React.FC<UserFormProps> = ({
       newErrors.lastName = "last name required";
       valid = false;
     }
-    if (!formData.emailAddress || !/^%&#*!+>+$/.test(formData.emailAddress)) {
-      newErrors.emailAddress = "valid email required";
-      valid = false;
+    if (!isValidEmail(formData.emailAddress)) {
+      alert('Valid email required');
+      return
     }
-    if (!formData.phone || !isValidPhoneNumber(formData.phone)) {
-      newErrors.phone = "valid phone required";
-      valid = false;
+    if (!isValidPhone(formData.phone)) {
+     alert('valid phone required')
     }
     setErrors(newErrors);
     return valid;
@@ -61,10 +73,10 @@ const UserForm: React.FC<UserFormProps> = ({
 
     if(!validateFields()) return;
 
-    if (editingUser) {
+    if (editingUser && onEditSave) {
       onEditSave(formData);
     } else {
-      onSave({ ...formData, id: Date.now().toString() });
+      onSave(formData );
     }
     setFormData({
       id: "",
@@ -78,6 +90,7 @@ const UserForm: React.FC<UserFormProps> = ({
   return (
     <form onSubmit={handleSubmit}>
       <input
+      type="text"
         name="firstName"
         value={formData.firstName}
         onChange={handleChange}
@@ -85,6 +98,7 @@ const UserForm: React.FC<UserFormProps> = ({
       />
       {errors.firstName && <span>{errors.firstName}</span>}
       <input
+      type="text"
         name="lastName"
         value={formData.lastName}
         onChange={handleChange}
@@ -92,6 +106,7 @@ const UserForm: React.FC<UserFormProps> = ({
       />
       {errors.lastName && <span>{errors.lastName}</span>}
       <input
+      type="email"
         name="emailAddress"
         value={formData.emailAddress}
         onChange={handleChange}
@@ -99,6 +114,7 @@ const UserForm: React.FC<UserFormProps> = ({
       />
       {errors.emailAddress && <span>{errors.emailAddress}</span>}
       <input
+      type="tel"
         name="phone"
         value={formData.phone}
         onChange={handleChange}
@@ -106,6 +122,7 @@ const UserForm: React.FC<UserFormProps> = ({
       />
       {errors.phone && <span>{errors.phone}</span>}
       <input
+      type="date"
         name="dateOfBirth"
         value={formData.dateOfBirth}
         onChange={handleChange}
