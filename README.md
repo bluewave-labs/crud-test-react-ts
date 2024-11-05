@@ -16,8 +16,8 @@ User {
 
 ## Make sure you complete this task using the following (do not skip this)
 
-- [ ] [Unit testing: Link 1](https://en.wikipedia.org/wiki/Unit_testing), [Link 2](https://www.testim.io/blog/node-js-unit-testing-get-started-quickly-with-examples/), [Link 3](https://www.lambdatest.com/learning-hub/nodejs-unit-testing)
-- [ ] Clean git commits that show your work progress.
+- [ ] Write your unit tests. You can use [Link 1](https://www.testim.io/blog/node-js-unit-testing-get-started-quickly-with-examples/), [Link 2](https://www.lambdatest.com/learning-hub/nodejs-unit-testing) for an understanding of how to write your own unit tests.
+- [ ] Write clean git commits that show your work progress.
 - [ ] Use [Material UI](https://mui.com/material-ui/getting-started/). Make sure you check our components under Client folder.
 - [ ] Implement [clean architecture](https://github.com/bluewave-labs/verifywise/blob/master/Clean_Architecture.md#clean-architecture)
 
