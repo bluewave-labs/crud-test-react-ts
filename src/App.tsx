@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import UserForm from "./UserForm";
 import UserList from "./UserList";
 import { User } from "./types";
+import {Container, Typography} from '@mui/material';
 
 import "./App.css";
 
@@ -50,14 +51,13 @@ const App: React.FC = () => {
   };
 
   return (
-    <div>
-      <UserForm
-        onSave={addUser}
-        editingUser={editingUser}
-        onEditSave={updateUser}
-      />
-      <UserList users={users} onDelete={deleteUser} onEdit={setEditingUser} />
-    </div>
+   <Container>
+    <Typography variant="h3" gutterBottom>
+      Crud React App
+    </Typography>
+    <UserForm onSave={addUser} editingUser={editingUser} onEditSave={updateUser}></UserForm>
+    <UserList users={users} onDelete={deleteUser} onEdit={setEditingUser}></UserList>
+   </Container>
   );
 };
 export default App;
