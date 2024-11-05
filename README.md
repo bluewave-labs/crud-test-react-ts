@@ -34,11 +34,16 @@ User {
 
 ### Delivery
 
-Please clone this repository in a new GitHub repository in private mode and share with ID: `MuhammadKhalilzadeh` and `gorkem-bwl` in private mode on github.com, make sure you do not erase my commits and then create a pull request (code review).
+Follow those steps to deliver your work: 
 
+-  Properly clone this repository in a new GitHub repository in private mode. Make sure you do not erase previous commits (for code review purposes).
+-  Share the repository with the users `MuhammadKhalilzadeh` and `gorkem-bwl` in private mode on github.com.
+  
 ---
 
 #### Useful links
+
+There are a few great links about Git, GitHub collaboration and naming convention. Make sure your read those documents before you start your work. 
 
 - [Basic Git Instructions: Making pull request to the original repository](https://github.com/MuhammadKhalilzadeh/basic-git-instructions?tab=readme-ov-file#making-pull-request-to-the-original-repository)
 - [Git Collaborative Workflow Tutorial: Making a Pull Request](https://github.com/ajhollid/bluewave_collaborative_git?tab=readme-ov-file#making-a-pull-request)
