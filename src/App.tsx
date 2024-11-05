@@ -33,6 +33,7 @@ const App: React.FC = () => {
       alert("User with this information already exists");
       return;
     }
+    user.id = Date.now().toString();
     setUsers((prevUsers) => [...prevUsers, user]);
   };
 
