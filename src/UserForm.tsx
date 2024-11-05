@@ -142,7 +142,6 @@ const UserForm: React.FC<UserFormProps> = ({
             <TextField
               fullWidth
               name="dateOfBirth"
-              label="Date of Birth"
               type="date"
               variant="outlined"
               value={formData.dateOfBirth}
