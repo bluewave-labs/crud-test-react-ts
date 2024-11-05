@@ -1,5 +1,6 @@
 import React from "react";
 import { User } from "./types";
+import {Table,TableBody,TableCell,TableContainer,TableHead,TableRow,Button,Paper} from '@mui/material';
 
 interface UserListProps {
   users: User[];
@@ -9,20 +10,39 @@ interface UserListProps {
 
 const UserList: React.FC<UserListProps> = ({ users, onDelete, onEdit }) => {
   return (
-    <div>
-      {users.map((user) => (
-        <div key={user.id}>
-          <span>
-            {user.firstName} /
-          </span>
-          <span> {user.lastName} / </span>
-          <span>{user.emailAddress} / </span>
-          <span>{user.phone} / </span>
-          <button onClick={()=> onEdit(user)}>Edit</button>
-          <button onClick={()=> onDelete(user.id)}>Delete</button>
-        </div>
-      ))}
-    </div>
+    <TableContainer component={Paper} style={{ margin: "20px" }}>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>First Name</TableCell>
+            <TableCell>Last Name</TableCell>
+            <TableCell>Email</TableCell>
+            <TableCell>Phone</TableCell>
+            <TableCell>Date of Birth</TableCell>
+            <TableCell>Actions</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {users.map((user) => (
+            <TableRow key={user.id}>
+              <TableCell>{user.firstName}</TableCell>
+              <TableCell>{user.lastName}</TableCell>
+              <TableCell>{user.emailAddress}</TableCell>
+              <TableCell>{user.phone}</TableCell>
+              <TableCell>{user.dateOfBirth}</TableCell>
+              <TableCell>
+                <Button color="primary" onClick={() => onEdit(user)}>
+                  Edit
+                </Button>
+                <Button color="secondary" onClick={() => onDelete(user.id)}>
+                  Delete
+                </Button>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 };
 export default UserList;
