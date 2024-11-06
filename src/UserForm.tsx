@@ -92,7 +92,7 @@ const UserForm: React.FC<UserFormProps> = ({
     <Paper style={{ padding: "20px", margin: "20px" }}>
       <form onSubmit={handleSubmit}>
         <Grid container spacing={2}>
-          <Grid>
+          <Grid >
             <TextField
               fullWidth
               name="firstName"
@@ -101,6 +101,8 @@ const UserForm: React.FC<UserFormProps> = ({
               value={formData.firstName}
               onChange={handleChange}
               required
+              error={!!errors.firstName}
+              helperText={errors.firstName}
             ></TextField>
           </Grid>
           <Grid>
@@ -112,6 +114,8 @@ const UserForm: React.FC<UserFormProps> = ({
               value={formData.lastName}
               onChange={handleChange}
               required
+              error={!!errors.lastName}
+              helperText={errors.lastName}
             ></TextField>
           </Grid>
           <Grid>
@@ -124,6 +128,8 @@ const UserForm: React.FC<UserFormProps> = ({
               value={formData.emailAddress}
               onChange={handleChange}
               required
+              error={!!errors.emailAddress}
+              helperText={errors.emailAddress}
             ></TextField>
           </Grid>
           <Grid>
@@ -136,6 +142,8 @@ const UserForm: React.FC<UserFormProps> = ({
               value={formData.phone}
               onChange={handleChange}
               required
+              error={!!errors.phone}
+              helperText={errors.phone}
             ></TextField>
           </Grid>
           <Grid>
@@ -147,6 +155,8 @@ const UserForm: React.FC<UserFormProps> = ({
               value={formData.dateOfBirth}
               onChange={handleChange}
               required
+              error={!!errors.dateOfBirth}
+              helperText={errors.dateOfBirth}
             ></TextField>
           </Grid>
           <Grid>
