@@ -43,6 +43,7 @@ const App: React.FC = () => {
     setUsers((prevUsers) =>
       prevUsers.map((u) => (u.id === updateUser.id ? updateUser : u))
     );
+    setEditingUser(null);
   };
 
   //delete user
