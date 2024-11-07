@@ -1,8 +1,14 @@
 export interface User {
-    id:string;
-    firstName:string;
-    lastName:string;
-    emailAddress:string;
-    phone:string;
-    dateOfBirth:string;
+  /** uid for every user*/
+  id: string;
+  /** user first name */
+  firstName: string;
+  /** user last name */
+  lastName: string;
+  /** user email */
+  emailAddress: `${string}@${string}.${string}`;
+  /** user phone */
+  phone: string;
+  /**  user dob */
+  dateOfBirth: `${number}-${number}-${number}`;
 }
