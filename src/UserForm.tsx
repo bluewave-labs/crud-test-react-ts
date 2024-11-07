@@ -31,13 +31,17 @@ const UserForm: React.FC<UserFormProps> = ({
 
   //validating phone and email
   const isValidEmail = (email: string): boolean => {
+    if(!email) return false;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
 
   const isValidPhone = (phone: string): boolean => {
+    if(!phone) return false;
     const phoneNumber = parsePhoneNumberFromString(phone);
-    return phoneNumber ? phoneNumber.isValid() : false;
+   if(!phoneNumber){
+    return false;
+   } return phoneNumber.isValid();
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
