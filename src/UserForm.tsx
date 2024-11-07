@@ -19,9 +19,9 @@ const UserForm: React.FC<UserFormProps> = ({
     id: "",
     firstName: "",
     lastName: "",
-    emailAddress: "",
+    emailAddress: "example@example.com",
     phone: "",
-    dateOfBirth: "",
+    dateOfBirth: "2000-01-01",
   });
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
@@ -42,7 +42,17 @@ const UserForm: React.FC<UserFormProps> = ({
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]:
+        name === "emailAddress" && prev.emailAddress === "example@example.com"
+          ? value
+          : name === "dateOfBirth" &&
+            prev.dateOfBirth === "2000-01-01"
+          ? value
+          : value,
+    }));
   };
 
   //validating form inputs
@@ -83,16 +93,16 @@ const UserForm: React.FC<UserFormProps> = ({
       id: "",
       firstName: "",
       lastName: "",
-      emailAddress: "",
+      emailAddress: "example@example.com",
       phone: "",
-      dateOfBirth: "",
+      dateOfBirth: "2000-01-01",
     });
   };
   return (
     <Paper style={{ padding: "20px", margin: "20px" }}>
       <form onSubmit={handleSubmit}>
         <Grid container spacing={2}>
-          <Grid >
+          <Grid>
             <TextField
               fullWidth
               name="firstName"
@@ -156,7 +166,7 @@ const UserForm: React.FC<UserFormProps> = ({
               onChange={handleChange}
               required
               error={!!errors.dateOfBirth}
-              helperText={errors.dateOfBirth}
+              helperText={errors.date}
             ></TextField>
           </Grid>
           <Grid>
