@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { User } from "./types";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { TextField, Button, Paper } from "@mui/material";
-import Grid from '@mui/material/Grid2';
-
+import Grid from "@mui/material/Grid2";
 
 interface UserFormProps {
   onSave: (user: User) => void;
@@ -31,17 +30,18 @@ const UserForm: React.FC<UserFormProps> = ({
 
   //validating phone and email
   const isValidEmail = (email: string): boolean => {
-    if(!email) return false;
+    if (!email) return false;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
 
   const isValidPhone = (phone: string): boolean => {
-    if(!phone) return false;
+    if (!phone) return false;
     const phoneNumber = parsePhoneNumberFromString(phone);
-   if(!phoneNumber){
-    return false;
-   } return phoneNumber.isValid();
+    if (!phoneNumber) {
+      return false;
+    }
+    return phoneNumber.isValid();
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -52,8 +52,7 @@ const UserForm: React.FC<UserFormProps> = ({
       [name]:
         name === "emailAddress" && prev.emailAddress === "example@example.com"
           ? value
-          : name === "dateOfBirth" &&
-            prev.dateOfBirth === "2000-01-01"
+          : name === "dateOfBirth" && prev.dateOfBirth === "2000-01-01"
           ? value
           : value,
     }));
@@ -72,13 +71,14 @@ const UserForm: React.FC<UserFormProps> = ({
       newErrors.lastName = "last name required";
       valid = false;
     }
-    if (!isValidEmail(formData.emailAddress)) {
-      alert("Valid email required");
-      return;
+    if (!formData.emailAddress || !isValidEmail(formData.emailAddress)) {
+      newErrors.emailAddress = "valid email required";
+      valid = false;
     }
-    if (!isValidPhone(formData.phone)) {
-      alert("valid phone required");
-    }
+     if (!formData.phone || !isValidPhone(formData.phone)) {
+       newErrors.phone = "valid phone required";
+       valid = false;
+     }
     setErrors(newErrors);
     return valid;
   };
