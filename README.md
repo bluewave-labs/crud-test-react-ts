@@ -18,7 +18,7 @@ User {
 
 - [ ] Write your unit tests. You can use [Link 1](https://www.testim.io/blog/node-js-unit-testing-get-started-quickly-with-examples/), [Link 2](https://www.lambdatest.com/learning-hub/nodejs-unit-testing) for an understanding of how to write your own unit tests.
 - [ ] Write clean git commits that show your work progress.
-- [ ] Use [Material UI](https://mui.com/material-ui/getting-started/). Make sure you check our components under Client folder.
+- [ ] Use [Material UI](https://mui.com/material-ui/getting-started/). Make sure you check our components under [this directory](https://github.com/bluewave-labs/verifywise/tree/master/Clients/src/presentation/components).
 - [ ] Implement [clean architecture](https://github.com/bluewave-labs/verifywise/blob/master/Clean_Architecture.md#clean-architecture)
 
 ---
